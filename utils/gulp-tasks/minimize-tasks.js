@@ -6,7 +6,7 @@ var Path = require('path');
 var gulp = require('gulp');
 var gulpSequence = require('gulp-sequence');
 
-var cachePath = Path.join(require('os').tmpDir(), 'editor-framework-cache');
+var cachePath = Path.join(require('os').tmpDir(), 'nit-ed-cache');
 
 var paths = {
   js: [

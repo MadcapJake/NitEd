@@ -32,7 +32,7 @@ gulp.task('bootstrap',
 gulp.task('update',
   gulpSequence(
     'setup-branch',
-    'update-editor-framework',
+    'update-nit-ed',
     'update-hosts',
     'update-builtin',
     'clear-builtin-bin',
@@ -88,16 +88,16 @@ gulp.task('run', function(cb) {
 // self
 // =====================================
 
-gulp.task('update-editor-framework', function(cb) {
+gulp.task('update-nit-ed', function(cb) {
   var Async = require('async');
 
   Async.series([
     function ( next ) {
-      git.exec(['pull', 'git@github.com:fireball-x/editor-framework.git', 'master'], './', next);
+      git.exec(['pull', 'git@github.com:MadcapJake/NitEd.git', 'master'], './', next);
     },
 
     function ( next ) {
-      console.log('editor-framework update complete!');
+      console.log('nit-ed update complete!');
       git.exec(['fetch', '--all'], './', next);
     },
 
@@ -208,7 +208,7 @@ gulp.task('clear-builtin-bin', function(cb) {
       return cb(err);
     }
 
-    console.log('Builtin Packages Cleaned! Will be rebuilt when editor-framework launches.');
+    console.log('Builtin Packages Cleaned! Will be rebuilt when nit-ed launches.');
     cb();
   });
 });

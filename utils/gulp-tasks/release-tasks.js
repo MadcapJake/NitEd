@@ -8,8 +8,8 @@ var gulp = require('gulp');
 var spawn = require('child_process').spawn;
 var pjson = require('../../package.json');
 
-var cachePath = Path.join(require('os').tmpDir(), 'editor-framework-cache');
-var appLoc = process.platform === 'win32' ? 'dist/resources/app' : 'dist/editor-framework.app/Contents/Resources/app';
+var cachePath = Path.join(require('os').tmpDir(), 'nit-ed-cache');
+var appLoc = process.platform === 'win32' ? 'dist/resources/app' : 'dist/nit-ed.app/Contents/Resources/app';
 
 var cachePattern = [
   '*.js',
@@ -60,14 +60,14 @@ gulp.task('copy-cache-to-dist', function() {
 
 gulp.task('copy-electron-mac', function(cb) {
   Fs.ensureDirSync('dist');
-  Fs.copy('bin/electron/Electron.app', 'dist/editor-framework.app', function(err) {
+  Fs.copy('bin/electron/Electron.app', 'dist/nit-ed.app', function(err) {
     if (err) {
       return cb(err);
     }
 
     Fs.copy(
       'utils/res/atom.icns',
-      'dist/editor-framework.app/Contents/Resources/atom.icns',
+      'dist/nit-ed.app/Contents/Resources/atom.icns',
       {clobber: true},
       cb
     );
@@ -81,13 +81,13 @@ gulp.task('copy-electron-win', function(cb) {
       return cb(err);
     }
 
-    Fs.move('dist/electron.exe', 'dist/editor-framework.exe', cb);
+    Fs.move('dist/electron.exe', 'dist/nit-ed.exe', cb);
   });
 });
 
 gulp.task('rename-electron-win', ['copy-electron-win'], function(cb) {
   var rcedit = require('rcedit');
-  rcedit('dist/editor-framework.exe', {
+  rcedit('dist/nit-ed.exe', {
     'product-version': pjson.version,
     'icon': 'utils/res/atom.ico'
   }, cb);
@@ -97,27 +97,27 @@ gulp.task('rename-electron-mac', ['copy-electron-mac'], function (cb) {
   // process plist
   var Plist = require('plist');
   var plistSrc = [
-    'dist/editor-framework.app/Contents/Info.plist',
-    'dist/editor-framework.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist'
+    'dist/nit-ed.app/Contents/Info.plist',
+    'dist/nit-ed.app/Contents/Frameworks/Electron Helper.app/Contents/Info.plist'
   ];
   plistSrc.forEach(function(file) {
     var obj = Plist.parse(Fs.readFileSync(file, 'utf8'));
-    obj.CFBundleDisplayName = 'editor-framework';
-    obj.CFBundleIdentifier = 'com.editor-framework.www';
-    obj.CFBundleName = 'editor-framework';
-    obj.CFBundleExecutable = 'editor-framework';
+    obj.CFBundleDisplayName = 'nit-ed';
+    obj.CFBundleIdentifier = 'com.nit-ed.www';
+    obj.CFBundleName = 'nit-ed';
+    obj.CFBundleExecutable = 'nit-ed';
     Fs.writeFileSync(file, Plist.build(obj), 'utf8');
   });
 
   // rename helper
   var srcList = [
-    'dist/editor-framework.app/Contents/MacOS/Electron',
-    'dist/editor-framework.app/Contents/Frameworks/Electron Helper EH.app',
-    'dist/editor-framework.app/Contents/Frameworks/Electron Helper NP.app',
-    'dist/editor-framework.app/Contents/Frameworks/Electron Helper.app',
-    'dist/editor-framework.app/Contents/Frameworks/editor-framework Helper EH.app/Contents/MacOS/Electron Helper EH',
-    'dist/editor-framework.app/Contents/Frameworks/editor-framework Helper NP.app/Contents/MacOS/Electron Helper NP',
-    'dist/editor-framework.app/Contents/Frameworks/editor-framework Helper.app/Contents/MacOS/Electron Helper',
+    'dist/nit-ed.app/Contents/MacOS/Electron',
+    'dist/nit-ed.app/Contents/Frameworks/Electron Helper EH.app',
+    'dist/nit-ed.app/Contents/Frameworks/Electron Helper NP.app',
+    'dist/nit-ed.app/Contents/Frameworks/Electron Helper.app',
+    'dist/nit-ed.app/Contents/Frameworks/nit-ed Helper EH.app/Contents/MacOS/Electron Helper EH',
+    'dist/nit-ed.app/Contents/Frameworks/nit-ed Helper NP.app/Contents/MacOS/Electron Helper NP',
+    'dist/nit-ed.app/Contents/Frameworks/nit-ed Helper.app/Contents/MacOS/Electron Helper',
   ];
 
   // DISABLE
@@ -129,7 +129,7 @@ gulp.task('rename-electron-mac', ['copy-electron-mac'], function (cb) {
 
   var Async = require('async');
   Async.eachSeries( srcList, function ( file, done ) {
-    Fs.move(file, file.replace(/Electron/, 'editor-framework'), done);
+    Fs.move(file, file.replace(/Electron/, 'nit-ed'), done);
   }, cb);
 });
 

@@ -1,1 +1,1 @@
-rm -rf ~/.editor-framework/*
+rm -rf ~/.nit-ed/*

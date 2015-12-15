@@ -29,7 +29,7 @@ apidocs/
 bin/
 bower_components/
 builtin/
-package-examples/
+editor-framework/
 ext/
 node_modules/
 local-setting.json

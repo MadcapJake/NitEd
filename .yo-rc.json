@@ -1,7 +1,7 @@
 {
   "generator-editor-framework": {
-    "projectName": "editor-framework",
-    "repo": "fireball-x/editor-framework",
+    "projectName": "nit-ed",
+    "repo": "MadcapJake/NitEd",
     "copyEntryFile": true
   }
 }
