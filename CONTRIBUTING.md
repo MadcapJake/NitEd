@@ -1,17 +1,17 @@
-# Contributing to nit-ed
+# Contributing to NitEd
 
 First off, thanks for taking the time to contribute!
 
-The following is a set of guidelines for contributing to nit-ed and its packages.
+The following is a set of guidelines for contributing to NitEd and its packages.
 
 ## Coding Style Guide
 
 ### General
 
-- nit-ed recommend a tab size of **2** spaces.
-- use dash naming rules for files and folders ( e.g. `foo-bar` )
-- use camelCase naming rules for module methods and properties ( e.g. `fooBar` )
-- use CamelCase naming rules for modules ( e.g. `FooBar` )
+- NitEd recommend a tab size of **2** spaces.
+- use Snake case naming rules for files and folders ( e.g. `foo-bar` )
+- use Camel Case naming rules for module methods and properties ( e.g. `fooBar` )
+- use Pascal Case naming rules for modules ( e.g. `FooBar` )
 - use upper-case for the first character of required module ( e.g. `var Foo = require('foo')` )
 - use `_` prefix for private method or variables ( e.g. `var _foobar = 'FooBar'` )
 
@@ -22,7 +22,7 @@ The following is a set of guidelines for contributing to nit-ed and its packages
 
 ## Submitting Issues
 
-* Include the version of nit-ed you are using and the OS.
+* Include the version of NitEd you are using and the OS.
 * Include screenshots and animated GIFs whenever possible; they are immensely
   helpful.
 * Check the dev tools (`alt-cmd-i`) for errors to include. If the dev tools
@@ -43,7 +43,7 @@ The following is a set of guidelines for contributing to nit-ed and its packages
 * End files with a newline.
 * Place requires in the following order:
     * Built in Node Modules (such as `path`)
-    * Built in nit-ed and Electron Modules (such as `fire-fs`, `shell`)
+    * Built in NitEd and Electron Modules (such as `fire-fs`, `shell`)
     * Local Modules (using relative paths)
 * Place class properties in the following order:
     * Class methods and properties (methods starting with a `@`)
@@ -64,6 +64,8 @@ The following is a set of guidelines for contributing to nit-ed and its packages
 * Reference issues and pull requests liberally
 * Consider starting the commit message with an applicable emoji:
     * :art: `:art:` when improving the format/structure of the code
+    * :bulb: `:bulb:` when implementing a new idea
+    * :construction: `:construction:` when the commit breaks or reduces functionality
     * :racehorse: `:racehorse:` when improving performance
     * :non-potable_water: `:non-potable_water:` when plugging memory leaks
     * :memo: `:memo:` when writing docs
@@ -75,6 +77,8 @@ The following is a set of guidelines for contributing to nit-ed and its packages
     * :green_heart: `:green_heart:` when fixing the CI build
     * :white_check_mark: `:white_check_mark:` when adding tests
     * :lock: `:lock:` when dealing with security
+    * :heavy_plus_sign: `:heavy_plus_sign:` when adding new functionality
+    * :heavy_minus_sign: `:heavy_minus_sign:` when removing functionality
     * :arrow_up: `:arrow_up:` when upgrading dependencies
     * :arrow_down: `:arrow_down:` when downgrading dependencies
     * :shirt: `:shirt:` when removing linter warnings
