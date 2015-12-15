@@ -77,7 +77,7 @@ gulp.task('run', function(cb) {
     optArr = ['./', '--debug=3030', '--dev', '--show-devtools'].concat(args);
   } else {
     cmdStr = 'bin/electron/electron';
-    optArr = ['./editor-framework/', '--debug=3030', '--dev', '--show-devtools'].concat(args);
+    optArr = ['./', '--debug=3030', '--dev', '--show-devtools'].concat(args);
   }
 
   var child = spawn(cmdStr, optArr, {
