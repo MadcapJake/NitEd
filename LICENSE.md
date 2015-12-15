@@ -1,4 +1,4 @@
-Copyright (c) 2014-2015 Firebox Technology Co,.Ltd.
+Copyright (c) 2015 Jake Russo
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
