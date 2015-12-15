@@ -1,10 +1,10 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "identifier": "com.example.electron-boilerplate",
-  "description": "Starter for your Electron application. Out of the box ready for serious stuff.",
+  "name": "nited",
+  "productName": "NitEd",
+  "identifier": "org.nit.nited",
+  "description": "A pleasing interface to Nit tools",
   "version": "0.1.0",
-  "author": "Mr Gumby <gumby@sillywalks.com>",
+  "author": "Jake Russo <madcap.russo+nited@gmail.com>",
   "main": "background.js",
   "dependencies": {
     "fs-jetpack": "^0.7.0"

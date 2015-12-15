@@ -1,24 +1,57 @@
-// Here is the starting point for your application code.
-// All stuff below is just to show you how it works. You can delete all of it.
+// var app = require('app');  // Module to control application life.
+// var BrowserWindow = require('browser-window');  // Module to create native browser window.
+//
+// // Keep a global reference of the window object, if you don't, the window will
+// // be closed automatically when the JavaScript object is garbage collected.
+// var mainWindow = null;
+//
+// // Quit when all windows are closed.
+// app.on('window-all-closed', function() {
+//   // On OS X it is common for applications and their menu bar
+//   // to stay active until the user quits explicitly with Cmd + Q
+//   if (process.platform != 'darwin') {
+//     app.quit();
+//   }
+// });
+//
+// // This method will be called when Electron has finished
+// // initialization and is ready to create browser windows.
+// app.on('ready', function() {
+//   // Create the browser window.
+//   mainWindow = new BrowserWindow({
+//     width: 600,
+//     height: 300,
+//     // frame: false,
+//     darkTheme: true,
+//     title: 'NitEd',
+//     'min-width': 500,
+//     'min-height': 200,
+//     'accept-first-mouse': true,
+//     'title-bar-style': 'hidden'
+//   });
+//
+//   // and load the index.html of the app.
+//   mainWindow.loadUrl('file://' + __dirname + '/index.html');
+//
+//   // Open the DevTools.
+//   //mainWindow.openDevTools();
+//
+//   // Emitted when the window is closed.
+//   mainWindow.on('closed', function() {
+//     // Dereference the window object, usually you would store windows
+//     // in an array if your app supports multi windows, this is the time
+//     // when you should delete the corresponding element.
+//     mainWindow = null;
+//   });
+// });
 
-// Use new ES6 modules syntax for everything.
-import os from 'os'; // native node.js module
-import { remote } from 'electron'; // native electron module
-import jetpack from 'fs-jetpack'; // module loaded from npm
-import { greet } from './hello_world/hello_world'; // code authored by you in this project
-import env from './env';
-
-console.log('Loaded environment variables:', env);
-
-var app = remote.app;
-var appDir = jetpack.cwd(app.getAppPath());
+// Node.js modules and those from npm
+// are required the same way as always.
+var os = require('os');
+var app = require('remote').require('app');
+var jetpack = require('fs-jetpack').cwd(app.getAppPath());
 
 // Holy crap! This is browser window with HTML and stuff, but I can read
 // here files like it is node.js! Welcome to Electron world :)
-console.log('The author if this app is:', appDir.read('package.json', 'json').author);
-
-document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('greet').innerHTML = greet();
-    document.getElementById('platform-info').innerHTML = os.platform();
-    document.getElementById('env-name').innerHTML = env.name;
-});
+console.log(jetpack.read('package.json', 'json'));
+console.log('hello world!');
