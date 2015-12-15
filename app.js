@@ -47,6 +47,7 @@ Editor.App.extend({
       'min-height': 700,
       'show': false,
       'resizable': true,
+      'darkTheme': true
     });
     Editor.mainWindow = mainWin;
 

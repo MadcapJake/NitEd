@@ -20,7 +20,7 @@ In cloned project folder, run the following command to setup dev environment:
 npm install
 ```
 
-This is all you have to do to set nit-ed development environment.
+This is all you have to do to set NitEd development environment.
 
 ### Run Tasks Manually
 
@@ -61,21 +61,21 @@ You can change this file anytime to choose mirror for Electron downloading again
 
 ## Run
 
-Here are ways to run nit-ed development version:
+Here are ways to run NitEd development version:
 
 ```bash
-# Run nit-ed
+# Run NitEd
 gulp run
 
-# Open nit-ed project
-gulp nit-ed --path path/to/project
+# Open NitEd project
+gulp NitEd --path path/to/project
 ```
 ## Update
 
-To get the latest nit-ed build:
+To get the latest NitEd build:
 
 ```bash
-# Update nit-ed from github repo,
+# Update NitEd from github repo,
 # also update builtin packages and electron binary
 # this command will also check dependencies
 # and report outdated or missing dependencies
@@ -120,18 +120,6 @@ npm run gendoc
 
 ## Feedback & Contribution
 
-- Join our [community on slack](https://nit-ed-slack.herokuapp.com), then access with http://nit-ed.slack.com/
-- If you have questions about a specific page of documentation, use the disqus sidebar on the left of [nit-ed Documentation Site](http://docs.nit-ed.com).
+- Join our [community on IRC](irc://irc.freenode.net/nited).
 - If you have any suggestion/feedback/problem, feel free to [submit an issue](https://github.com/MadcapJake/NitEd/issues).
 - If you want to contribute to this project, please read [Contributing Guidelines](https://github.com/MadcapJake/NitEd/blob/master/CONTRIBUTING.md).
-
-## Trouble Shooting
-
-### [Windows] error MSB4025: Could not load project file. Invalid character in coding provided.
-
-This error is due to non-ascii character in your home path, please check this guide to [rename user profile](http://superuser.com/questions/495290/how-to-rename-user-folder-in-windows-8).
-
-### Error: Permission denied (publickey)
-
-Usually this is due to incorrect setup of ssh key. Please troubleshoot with this guide: https://help.github.com/articles/error-permission-denied-publickey/#platform-linux
-
