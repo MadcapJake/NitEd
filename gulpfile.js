@@ -32,7 +32,7 @@ gulp.task('bootstrap',
 gulp.task('update',
   gulpSequence(
     'setup-branch',
-    'update-nit-ed',
+    'update-nited',
     'update-hosts',
     'update-builtin',
     'clear-builtin-bin',
@@ -91,7 +91,7 @@ gulp.task('run', function(cb) {
 // self
 // =====================================
 
-gulp.task('update-nit-ed', function(cb) {
+gulp.task('update-nited', function(cb) {
   var Async = require('async');
 
   Async.series([
@@ -100,7 +100,7 @@ gulp.task('update-nit-ed', function(cb) {
     },
 
     function ( next ) {
-      console.log('nit-ed update complete!');
+      console.log('NitEd update complete!');
       git.exec(['fetch', '--all'], './', next);
     },
 
@@ -157,7 +157,7 @@ gulp.task('update-hosts', ['setup-branch'], function(cb) {
 });
 
 // builtin
-// =====================================
+// ====================================
 
 gulp.task('update-builtin', ['setup-branch'], function(cb) {
   Fs.ensureDirSync('builtin');
@@ -211,7 +211,7 @@ gulp.task('clear-builtin-bin', function(cb) {
       return cb(err);
     }
 
-    console.log('Builtin Packages Cleaned! Will be rebuilt when nit-ed launches.');
+    console.log('Builtin Packages Cleaned! Will be rebuilt when NitEd launches.');
     cb();
   });
 });
