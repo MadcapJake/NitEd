@@ -26,7 +26,7 @@ app.on('ready', function () {
         y: mainWindowState.y,
         width: mainWindowState.width,
         height: mainWindowState.height,
-        darkTheme: true
+        // darkTheme: true
     });
 
     if (mainWindowState.isMaximized) {

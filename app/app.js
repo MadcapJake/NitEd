@@ -50,8 +50,18 @@
 var os = require('os');
 var app = require('remote').require('app');
 var jetpack = require('fs-jetpack').cwd(app.getAppPath());
+var spawn = require('child_process').spawn;
 
 // Holy crap! This is browser window with HTML and stuff, but I can read
 // here files like it is node.js! Welcome to Electron world :)
 console.log(jetpack.read('package.json', 'json'));
 console.log('hello world!');
+
+document.addEventListener('DOMContentLoaded', function() {
+  console.log('DOMContentLoaded');
+  var hl = '',
+      nl = spawn('nitlight', ['--fragment', '/home/jrusso/nit/examples/clock.nit']);
+  nl.on('data', function (buf) { console.log(buf); hl += buf.toString() });
+  nl.on('end',  function ()    { document.getElementById('text').innerHTML = hl });
+  nl.on('error',function (err) { console.log(err) });
+});
